@@ -19,6 +19,16 @@ elif [ "${INPUT_STANDARD}" = "10up-Default" ]; then
     git clone https://github.com/Automattic/VIP-Coding-Standards ${HOME}/vipcs
     git clone https://github.com/sirbrillig/phpcs-variable-analysis ${HOME}/variable-analysis
     ${INPUT_PHPCS_BIN_PATH} --config-set installed_paths "${HOME}/wpcs,${HOME}/10up/10up-Default,${HOME}/phpcompatwp/PHPCompatibilityWP,${HOME}/phpcompat/PHPCompatibility,${HOME}/phpcompat-paragonie/PHPCompatibilityParagonieSodiumCompat,${HOME}/phpcompat-paragonie/PHPCompatibilityParagonieRandomCompat,${HOME}/phpcsutils/PHPCSUtils,${HOME}/vipcs,${HOME}/variable-analysis"
+elif [ "${INPUT_STANDARD}" = "WPThemeReview" ]; then
+    echo "Setting up dailyupside"
+    git clone https://github.com/WPTT/WPThemeReview ${HOME}/WPThemeReview
+    git clone https://github.com/PHPCompatibility/PHPCompatibilityWP ${HOME}/phpcompatwp
+    git clone https://github.com/PHPCompatibility/PHPCompatibility ${HOME}/phpcompat
+    git clone https://github.com/PHPCompatibility/PHPCompatibilityParagonie ${HOME}/phpcompat-paragonie
+    git clone https://github.com/PHPCSStandards/PHPCSUtils ${HOME}/phpcsutils
+    git clone https://github.com/Automattic/VIP-Coding-Standards ${HOME}/vipcs
+    git clone https://github.com/sirbrillig/phpcs-variable-analysis ${HOME}/variable-analysis
+    ${INPUT_PHPCS_BIN_PATH} --config-set installed_paths "${HOME}/wpcs,${HOME}/WPThemeReview/WPThemeReview,${HOME}/phpcompatwp/PHPCompatibilityWP,${HOME}/phpcompat/PHPCompatibility,${HOME}/phpcompat-paragonie/PHPCompatibilityParagonieSodiumCompat,${HOME}/phpcompat-paragonie/PHPCompatibilityParagonieRandomCompat,${HOME}/phpcsutils/PHPCSUtils,${HOME}/vipcs,${HOME}/variable-analysis"
 elif [ -z "${INPUT_STANDARD_REPO}" ] || [ "${INPUT_STANDARD_REPO}" = "false" ]; then
     ${INPUT_PHPCS_BIN_PATH} --config-set installed_paths ~/wpcs
 else
